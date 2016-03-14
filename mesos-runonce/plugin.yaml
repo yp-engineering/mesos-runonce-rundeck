@@ -1,0 +1,37 @@
+name: mesos-runonce
+version: 1.0
+rundeckPluginVersion: 1.0
+author: Adam Avilla
+date: 03/02/16
+providers:
+  - name: mesos-runonce
+    service: WorkflowStep
+    title: 'mesos-runonce'
+    description: Execute a docker container on mesos.
+    plugin-type: script
+    script-interpreter: /bin/bash
+    script-file: mesos-runonce.sh
+    script-args: '-docker-image=${config.image} -docker-cmd=${config.command} -cpus=${config.cpus} -mem=${config.mem}'
+    config:
+      - type: String
+        name: image
+        title: docker image
+        description: The docker image to run.
+        required: true
+      - type: String
+        name: command
+        title: docker command
+        description: What command should the container run.
+        default: ''
+      - type: String
+        name: cpus
+        title: cpus
+        description: How many cpus your container needs.
+        required: true
+        default: 1
+      - type: String
+        name: mem
+        title: mem
+        description: How much memory your container needs.
+        required: true
+        default: 10
