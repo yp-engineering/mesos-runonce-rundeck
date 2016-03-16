@@ -21,7 +21,7 @@ providers:
       - type: String
         name: command
         title: docker command
-        description: What command should the container run.
+        description: "What command should the container run. *NOTE* Currently only supports single value."
         default: ''
       - type: String
         name: cpus
