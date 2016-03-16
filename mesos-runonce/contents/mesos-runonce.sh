@@ -9,6 +9,7 @@ echo -n $MESOS_SECRET > $secret
 
 # If the user runs the job with rundeck debug on, debug this script as well.
 if [ $RD_JOB_LOGLEVEL == "DEBUG" ]; then
+  set -x
   DEBUG_OPTS="-logtostderr=true -v=2"
 fi
 
