@@ -1,6 +1,6 @@
 name: mesos-runonce
 version: 1.0
-rundeckPluginVersion: 1.0
+rundeckPluginVersion: 1.1
 author: Adam Avilla
 date: 03/02/16
 providers:
@@ -11,7 +11,7 @@ providers:
     plugin-type: script
     script-interpreter: /bin/bash
     script-file: mesos-runonce.sh
-    script-args: '-docker-image=${config.image} -docker-cmd=${config.command} -cpus=${config.cpus} -mem=${config.mem}'
+    script-args: "-docker-image=${config.image} -docker-cmd=${config.command} -cpus=${config.cpus} -mem=${config.mem} -env-vars=${config.env-vars}"
     config:
       - type: String
         name: image
@@ -35,3 +35,8 @@ providers:
         description: How much memory your container needs.
         required: true
         default: 10
+      - type: String
+        name: env-vars
+        title: env-vars
+        description: 'JSON of env vars E.g. {"env":{"FOO":"bar"}}'
+        default: ''
