@@ -22,7 +22,7 @@ providers:
         name: command
         title: docker command
         description: "What command should the container run. *NOTE* Currently only supports single value."
-        default: ''
+        default: ' '
       - type: String
         name: cpus
         title: cpus
@@ -39,4 +39,4 @@ providers:
         name: env-vars
         title: env-vars
         description: 'JSON of env vars E.g. {"env":{"FOO":"bar"}}'
-        default: ''
+        default: ' '
